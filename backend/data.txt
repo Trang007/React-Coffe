@@ -1,0 +1,38 @@
+Link:
+mongodb+srv://roccatnguyentuan:0L6k2KXdx2VZnGRY@cluster0.jq3cd3z.mongodb.net/cafe?retryWrites=true&w=majority
+
+npm init -y
+npm i bcrypt cloudinary concurrently cookie-parser cors dotenv express express-fileupload jsonwebtoken mongoose colors nodemon
+controllers -userCtrl.js
+middleware -auth.js 
+models -userModel.js
+routers-userRoute.js
+server.js 
+"dev":"nodemon server.js"
+app.mvc
+app.connect
+
+
+download mongodb ,postmain,robo 3t
+Nodejs Snippets,Mongo Snippets for Node-js
+
+app.router
+!mdbgum
+
+    register: async (req, res) => {
+        try {
+          // res.json(req.body)
+          const { name, email, password } = req.body;
+          const user = await Users.findOne({ email });
+          if (user)
+            return res.status(400).json({ msg: "The email already exists" });
+          if (password.length < 6)
+            return res.status(400).json({ msg: "password is at the 6 char" });
+          const passwordHash = await bcrypt.hash(password, 10);
+          const newUser = await Users({ name, email, password: passwordHash });
+            res.json({ newUser });
+          res.json({ refreshtoken });
+        } catch (error) {
+          return res.status(500).json({ msg: error.message });
+        }
+      },
