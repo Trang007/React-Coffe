@@ -1,10 +1,10 @@
 import React from 'react'
-import MenuArea from '../component/MenuArea'
+import Header from '../component/Header'
 
 const Home = () => {
   return (
     <div>
-        <MenuArea/>
+        <Header/>
     </div>
   )
 }
