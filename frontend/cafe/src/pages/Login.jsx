@@ -3,7 +3,7 @@ import style from '../pages/Login.module.css'
 
 const Login = () => {
   return (
-    <div>
+    <div class={style['Login']}>
         This Login
     </div>
   )
