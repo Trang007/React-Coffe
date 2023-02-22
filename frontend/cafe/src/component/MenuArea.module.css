@@ -1,0 +1,90 @@
+.MenuArea {
+    background-color: black;
+}
+
+.MenuInner {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.LogoWeb {
+    width: 100px;
+    height: 30px;
+}
+
+.LogoMobile {
+    display: none;
+    width: 100px;
+    height: 30px;
+}
+
+.MenuIcon {
+    display: none;
+}
+
+.Menu {
+    display: flex;
+    align-items: center;
+}
+
+.Menu ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    border-right: 2px solid white;
+}
+
+.Menu ul li {
+    margin: 0 30px;
+}
+
+.Menu ul li a {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.ShoppingCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0 20px;
+}
+
+.Menu a:hover {
+    color: #c7a17a;
+}
+
+@media (max-width: 740px) {
+    .MenuArea {
+        background-color: white;
+    }
+
+    .LogoWeb {
+        display: none;
+    }
+
+    .LogoMobile {
+        display: block;
+    }
+
+    .Menu ul {
+        display: none;
+    }
+
+    .Menu .MenuIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        margin: 0 10px;
+    }
+
+    .Menu .ShoppingCart {
+        color: black;
+    }
+}
