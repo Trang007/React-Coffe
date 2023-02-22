@@ -1,9 +1,9 @@
 import React from 'react'
-import Menu from "./MenuArea"
+import MenuArea from "./MenuArea"
 const Header = () => {
   return (
     <div>
-    <Menu/>
+      <MenuArea />
     </div>
   )
 }
