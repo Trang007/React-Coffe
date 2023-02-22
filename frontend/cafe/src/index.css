@@ -1,1 +1,43 @@
 @import url(./component/MenuArea.module.css);
+
+a{
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+
+p{
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    font-size: 60px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2{
+    font-size: 48px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h3{
+    font-size: 36px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h4{
+    font-size: 24px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h5{
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px;
+}

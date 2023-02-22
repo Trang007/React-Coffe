@@ -1,0 +1,54 @@
+.Header{
+    background: url(../assets/HeaderBackground.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.HeaderMenu{
+    width: 100%;
+}
+
+.HeadreInner{
+    height: 100%;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.HeaderContent{
+    color: #c7a17a;
+}
+
+.HeaderContent h1{
+    margin-bottom: 30px;
+}
+
+.HeaderContent h4{
+    font-weight: 500;
+}
+
+@media (max-width: 740px) {
+    .Header{
+        height: 350px;
+    }
+    .HeadreInner{
+        height: 100%;
+        padding-left: 20px;
+    }
+
+    .HeaderContent h1{
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .HeaderContent h4{
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
