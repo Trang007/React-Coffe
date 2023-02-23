@@ -15,30 +15,29 @@ const MenuArea = () => {
             <img src={Logo2} className={style['LogoWeb']} />
           </a>
         </div>
-        <div className={style['humburger']}>
-          <MenuIcon className={style['line']}/>
-        </div>
-        <nav className={style['nav-bar']}>
-          <ul>
-            <li>
-              <a href="../pages/Home.jsx">Home</a>
-            </li>
-            <li>
-              <a href="">Menu</a>
-            </li>
-            <li>
-              <a href="">Blog</a>
-            </li>
-            <li>
-              <a href="../pages/Login.jsx">Login</a>
-            </li>
-          </ul>
-        </nav>
-        {/* <div className='buttonMenu'>
+        <div className={style['MenuRight']}>
+          <nav className={style['nav-bar']}>
+            <ul>
+              <li>
+                <a href="/pages/Home">Home</a>
+              </li>
+              <li>
+                <a href="">Menu</a>
+              </li>
+              <li>
+                <a href="">Blog</a>
+              </li>
+              <li>
+                <a href="/pages/Login">Login</a>
+              </li>
+            </ul>
+          </nav>
+          <div className='buttonMenu'>
             <a href="" className={style['ShoppingCart']}>
               <ShoppingCartOutlinedIcon sx={{ fontSize: 20 }} />
             </a>
-          </div> */}
+          </div>
+        </div>
       </div>
     </div>
   )

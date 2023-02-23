@@ -1,0 +1,86 @@
+.Login{
+    background: url(../assets/LoginBackground.jpg);
+    width: 100%;
+    height: 645px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginInner{
+    border-radius: 40px;
+    color: white;
+    background-color: #00000098;
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Acc h4{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.Acc input{
+    padding: 5px 10px;
+}
+
+.LoginButton{
+    margin: 20px 0;
+    display: flex;
+}
+
+.LoginButton a{
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color:gray;
+    padding: 10px 70px;
+}
+
+.LoginButton a:hover{
+    background-color: #ffc790;
+    color: black;
+}
+
+.More{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.More a{
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+
+.Forgot:hover{
+    color: #ffc790;
+}
+
+.register{
+    padding: 10px 20px;
+    background-color: #333333;
+    border-radius: 30px;
+}
+
+.register:hover{
+    background-color: #ffc790;
+    color: black;
+}

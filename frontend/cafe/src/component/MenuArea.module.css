@@ -25,8 +25,9 @@
     height: 30px;
 }
 
-.hamburger {
-    display: none;
+.MenuRight{
+    display: flex;
+    margin-right: 30px;
 }
 
 .nav-bar ul {
@@ -54,37 +55,6 @@
     color: #c7a17a;
 }
 
-@media (max-width: 900px) {
-    .MenuInner {
-        background-color: gray;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .nav-bar {
-        height: 0px;
-        background-color: black;
-        position: absolute;
-        top: 50px;
-        left: 0px;
-        right: 0px;
-        width: 100vw;
-        transition: 0.2s;
-        overflow: hidden;
-    }
-
-    .nav-bar ul {
-        display: block;
-        width: fit-content;
-        margin: 20px auto 0 auto;
-        text-align: center;
-        transition: 0.5s;
-        opacity: 0;
-    }
-    .nav-bar ul li a{
-        margin-bottom: 15px;
-    }
+.ShoppingCart{
+    color: white;
 }
