@@ -1,0 +1,57 @@
+.Register{
+    background: url(../assets/RegisterBackground.jpg);
+    width: 100%;
+    height: 645px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RegisterInner{
+    border-radius: 40px;
+    color: white;
+    background-color: #00000098;
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Acc h4{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.Acc input{
+    padding: 5px 10px;
+}
+
+.RegisterButton{
+    margin: 20px 0;
+    display: flex;
+}
+
+.RegisterButton a{
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color:gray;
+    padding: 10px 70px;
+}
+
+.RegisterButton a:hover{
+    background-color: #ffc790;
+    color: black;
+}

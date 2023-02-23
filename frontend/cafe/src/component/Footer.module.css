@@ -1,0 +1,66 @@
+.Footer{
+    background: url(../assets/footer-img.jpg);
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FooterInner{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.FooterRow{
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.FooterRow h4{
+    margin-bottom: 20px;
+}
+
+.FooterRowInner{
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.FooterCalender{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Row2Title{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.Row2Time{
+    font-size: 14px;
+    color: #c7a17a;
+    margin-bottom: 7px;
+}
+
+.FooterMail{
+    text-decoration: none;
+    color: #c7a17a;
+    padding-bottom: 3px;
+}
+
+.FooterPhone{
+    color: gray;
+    padding-bottom: 3px;
+}
+
+.FooterAddress{
+    color: gray;
+    padding-bottom: 3px;
+}

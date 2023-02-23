@@ -17,11 +17,11 @@ const Login = () => {
             <input type="password" />
           </div>
           <div className={style['LoginButton']}>
-            <a href="/pages/Home"> Đăng nhập </a>
+            <a href="/"> Đăng nhập </a>
           </div>
           <div className={style['More']}>
-            <a href="" className={style['register']}>Đăng ký</a>
-            <a href="" className={style['Forgot']}>Quên mật khẩu</a>
+            <a href="/Register" className={style['register']}>Đăng ký</a>
+            <a href="/ForgotPassword" className={style['Forgot']}>Quên mật khẩu</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword';
 
 import {
   createBrowserRouter,
@@ -9,11 +11,20 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/pages/Home",
+    path: "/",
     element: <Home/>
-  }, {
-    path: "/pages/Login",
+  }, 
+  {
+    path: "/Login",
     element: <Login/>
+  },
+  {
+    path: "/Register",
+    element: <Register/>
+  },
+  {
+    path: "/ForgotPassword",
+    element: <ForgotPassword/>
   },
 ]);
 function App() {

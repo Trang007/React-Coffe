@@ -19,7 +19,7 @@ const MenuArea = () => {
           <nav className={style['nav-bar']}>
             <ul>
               <li>
-                <a href="/pages/Home">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
                 <a href="">Menu</a>
@@ -28,7 +28,7 @@ const MenuArea = () => {
                 <a href="">Blog</a>
               </li>
               <li>
-                <a href="/pages/Login">Login</a>
+                <a href="/Login">Login</a>
               </li>
             </ul>
           </nav>
