@@ -11,11 +11,14 @@ const MenuArea = () => {
       <div className={style['MenuInner']}>
         <div className={style['Logo']}>
           <a href="../pages/Home.jsx">
-            <img src={Logo1} className={style['LogoMobile']}/>
-            <img src={Logo2} className={style['LogoWeb']}/>
+            <img src={Logo1} className={style['LogoMobile']} />
+            <img src={Logo2} className={style['LogoWeb']} />
           </a>
         </div>
-        <div className={style['Menu']}>
+        <div className={style['humburger']}>
+          <MenuIcon className={style['line']}/>
+        </div>
+        <nav className={style['nav-bar']}>
           <ul>
             <li>
               <a href="../pages/Home.jsx">Home</a>
@@ -30,13 +33,12 @@ const MenuArea = () => {
               <a href="../pages/Login.jsx">Login</a>
             </li>
           </ul>
-          <a href="" className={style['ShoppingCart']}>
-            <ShoppingCartOutlinedIcon sx={{ fontSize: 20 }} />
-          </a>
-          <a href="" className={style['MenuIcon']}>
-            <MenuIcon sx={{ fontSize: 20 }}/>
-          </a>
-        </div>
+        </nav>
+        {/* <div className='buttonMenu'>
+            <a href="" className={style['ShoppingCart']}>
+              <ShoppingCartOutlinedIcon sx={{ fontSize: 20 }} />
+            </a>
+          </div> */}
       </div>
     </div>
   )

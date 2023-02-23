@@ -1,7 +1,6 @@
 import React from 'react'
 import style from '../component/Header.module.css'
 import MenuArea from "./MenuArea"
-import HeaderBackground from '../assets/HeaderBackground.jpg'
 
 const Header = () => {
   return (
