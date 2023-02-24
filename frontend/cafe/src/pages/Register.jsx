@@ -1,5 +1,6 @@
 import React from 'react'
 import MenuArea from '../component/MenuArea'
+import Footer from '../component/Footer'
 import style from '../pages/Register.module.css'
 
 const Register = () => {
@@ -30,6 +31,8 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
+
         </div>
     )
 }

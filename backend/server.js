@@ -5,12 +5,13 @@ const port = process.env.PORT;
 // app.parse
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+const cookies = require("cookie-parser");
+app.use(cookies());
 app.get('/', (req, res) => {
 
     res.send('hello from simple server :)')
 
 });
-
 
 app.listen(port, () => console.log('> Server is up and running on port : ' + port));
 

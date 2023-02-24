@@ -1,6 +1,8 @@
 import React from 'react'
 import style from '../pages/Login.module.css'
 import MenuArea from '../component/MenuArea'
+import Footer from '../component/Footer'
+
 const Login = () => {
   return (
     <div>
@@ -25,6 +27,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
