@@ -35,7 +35,7 @@ const userCtrl = {
                 if (err)
                     return res.status(400).json({ msg: "Chua dang nhap!" });
                 const accesstoken = createAccessToken({ id: user._id });
-                res.json({ accesstoken });oken
+                res.json({ accesstoken });
             });
         } catch (error) {
             return res.status(500).json({ msg: error.message })
