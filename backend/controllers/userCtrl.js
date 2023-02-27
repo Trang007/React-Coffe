@@ -24,10 +24,10 @@ const userCtrl = {
             const acc_token = req.cookies.accesstoken;
             //Chưa đăng nhập
             if (!acc_token)
-                return res.status(400).json({ msg: "Chua dang nhap!" }); //Trả về thông báo chưa đăng nhập
+                return res.status(400).json({ msg: "Please Login or Register!" }); //Trả về thông báo chưa đăng nhập
             jwt.verify(acc_token, process.env.ACCESS, (err, user) => {
                 if (err)
-                    return res.status(400).json({ msg: "Chua dang nhap!" });
+                    return res.status(400).json({ msg: "Please Login or Register!" });
                 const accesstoken = createAccessToken({ id: user._id });
                 res.json({ accesstoken });
             });
