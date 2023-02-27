@@ -12,39 +12,42 @@ const productCtrl = {
     },
     createProduct: async (req, res) => {
         try {
-            const { category, name, price, image} = req.body;
+            const { categories, name, price, image} = req.body;
             if (!image) {
                 return res.status(400).json({ msg: "No image selected!" });
             }
-            const categories = await Category.findOne({ category_name: category });
+            categories = await Category.findOne({ category_name: categories });
             if (!categories) {
                 return res.status(400).json({ msg: "No category selected!" });
             }
-            const newProduct = await Product({ product_category: category, product_name: name, product_price: price, product_image: image});
-            //   res.json({newProduct})
+            const newProduct = await Product({ product_category: categories, product_name: name, product_price: price, product_image: image});
             await newProduct.save();
-            res.json("Create a product!");
+            res.json("Create product complete!");
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }
     },
     deleteProduct: async (req, res) => {
         try {
-            await Products.findByIdAndDelete(req.params.id);
-            res.json("Delete Product!");
+            await Product.findByIdAndDelete(req.params.id);
+            res.json("Delete product complete!");
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }
     },
     updateProduct: async (req, res) => {
         try {
-            const { category, name, price, image} = req.body;
+            const { categories, name, price, image} = req.body;
             if (!image) {
                 return res.status(400).json({ msg: "No images selected" });
             }
-            await Product.findOneAndUpdate({ _id: req.params.id }, { product_category: category, product_name: name, product_price: price, product_image: image }
+            categories = await Category.findOne({ category_name: categories });
+            if (!categories) {
+                return res.status(400).json({ msg: "No category selected!" });
+            }
+            await Product.findOneAndUpdate({ _id: req.params.id }, { product_category: categories, product_name: name, product_price: price, product_image: image }
             );
-            res.json("Update a product!");
+            res.json("Update product complete!");
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }

@@ -1,38 +1,34 @@
 const Category = require("../models/categoryModel");
-const Products = require("../models/productModel");
+const Product = require("../models/productModel");
 const categoryCtrl = {
-  // view all category
   getCategories: async (req, res) => {
     try {
-      const categorys = await Category.find();
-      res.json(categorys);
+      const categories = await Category.find();
+      res.json(categories);
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
   },
-  //create a category
-  //only admin can create category,delete,update =>chỉ có admin mới có thể thêm sửa xóa danh mục sản phẩm
   createCategory: async (req, res) => {
     try {
       const { name } = req.body;
-      const category = await Category.findOne({ category_name: name });
-      if (category)
+      const categories = await Category.findOne({ category_name: name });
+      if (categories)
         return res.status(400).json({ msg: "The name already exists" });
-      const newCategory = await Category({ category_name: name });
-      //   res.json({ newCategory });
-      await newCategory.save();
-      res.json("create a category");
+      const newCategories = await Category({ category_name: name });
+      await newCategories.save();
+      res.json("Create category complete!");
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
   },
   deleteCategory: async (req, res) => {
     try {
-      const product = await Products.findOne({ categories: req.params.id });
-      if (product) 
+      const products = await Product.findOne({ categories: req.params.id });
+      if (products) 
         return res.status(400).json({ msg: "Delete all product" });
       await Category.findByIdAndDelete(req.params.id);
-      res.json("delete a category");
+      res.json("Delete category complete!");
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
@@ -41,7 +37,7 @@ const categoryCtrl = {
     try {
       const { name } = req.body;
       await Category.findOneAndUpdate({ _id: req.params.id }, { name });
-      res.json("update a category");
+      res.json("Update category complete!");
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
