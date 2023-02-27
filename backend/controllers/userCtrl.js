@@ -19,7 +19,7 @@ const userCtrl = {
             return res.status(500).json({ msg: error.message });
         }
     },
-    refreshToken: (req, res) => {
+    accessToken: (req, res) => {
         try {
             const rf_token = req.cookies.refreshtoken;
             //Chưa đăng nhập
@@ -45,12 +45,12 @@ const userCtrl = {
             if (!isWatch)
                 return res.status(400).json({ msg: "incorrect password" });
             const accesstoken = createAccessToken({ id: user._id });
-            const refreshtoken = createRefreshToken({ id: user._id });
-            res.cookie("refreshtoken", refreshtoken, {
+            // const refreshtoken = createRefreshToken({ id: user._id });
+            res.cookie("accesstoken", accesstoken, {
                 httpOnly: true,
-                path: "/user/refresh_token",
+                path: "/user/accesstoken",
             });
-            res.json({ refreshtoken });
+            res.json({ accesstoken});
         } catch (error) {
             return res.status(500).json({ msg: error.message })
         }
