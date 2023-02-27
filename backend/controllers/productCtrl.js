@@ -13,11 +13,11 @@ const productCtrl = {
     createProduct: async (req, res) => {
         try {
             const { categories, name, price, image} = req.body;
-            if (!image) {
-                return res.status(400).json({ msg: "No image selected!" });
-            }
-            categories = await Category.findOne({ category_name: categories });
-            if (!categories) {
+            // if (!image) {
+            //     return res.status(400).json({ msg: "No image selected!" });
+            // }
+            const nameCategory = await Category.findOne({ category_name: categories });
+            if (!nameCategory) {
                 return res.status(400).json({ msg: "No category selected!" });
             }
             const newProduct = await Product({ product_category: categories, product_name: name, product_price: price, product_image: image});
