@@ -29,7 +29,8 @@ const categoryCtrl = {
   deleteCategory: async (req, res) => {
     try {
       const product = await Products.findOne({ categories: req.params.id });
-      if (product) return res.status(400).json({ msg: "Delete all product" });
+      if (product) 
+        return res.status(400).json({ msg: "Delete all product" });
       await Category.findByIdAndDelete(req.params.id);
       res.json("delete a category");
     } catch (error) {
