@@ -14,13 +14,7 @@ const userCtrl = {
             const newUser = await User({ email, password: passwordHash, name });
             await newUser.save();
             // res.json({newUser});
-            const accesstoken = createAccessToken({ id: newUser._id });
-            const refreshtoken = createRefreshToken({ id: newUser._id });
-            res.cookie("refreshtoken", refreshtoken, {
-                httpOnly: true,
-                path: "/user/refresh_token",
-            });
-            res.json({ refreshtoken });
+            res.json({ msg: "Register complete!"});
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }

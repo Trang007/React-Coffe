@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
             return res.status(400).json({ msg: "Plese Login!" });
         jwt.verify(token, process.env.ACCESS, (err, user) => {
             if (err)
-                return res.status(400).json({ msg: "Invalid Authorization" });
+                return res.status(400).json({ msg: "No token!" });
             req.user = user;
             next();
         });
