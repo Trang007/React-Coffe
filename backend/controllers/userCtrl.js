@@ -19,8 +19,8 @@ const userCtrl = {
             res.cookie("refreshtoken", refreshtoken, {
                 httpOnly: true,
                 path: "/user/refresh_token",
-              });
-              res.json({ refreshtoken });
+            });
+            res.json({ refreshtoken });
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }
@@ -43,21 +43,38 @@ const userCtrl = {
     },
     login: async (req, res) => {
         try {
-            res.json("This userCtrl")
+            const { email, password } = req.body;
+            const user = await User.findOne({ email });
+            if (!user)
+                return res.status(400).json({ msg: "User does not exists" });
+            const isWatch = await bcrypt.compare(password, user.password);
+            if (!isWatch)
+                return res.status(400).json({ msg: "incorrect password" });
+            const accesstoken = createAccessToken({ id: user._id });
+            const refreshtoken = createRefreshToken({ id: user._id });
+            res.cookie("refreshtoken", refreshtoken, {
+                httpOnly: true,
+                path: "/user/refresh_token",
+            });
+            res.json({ refreshtoken });
         } catch (error) {
             return res.status(500).json({ msg: error.message })
         }
     },
     logout: async (req, res) => {
         try {
-            res.json("This userCtrl")
+            res.clearCookie("refreshtoken", { path: "/user/refresh_token" });
+            return res.status(400).json({ msg: "Logout" });
         } catch (error) {
             return res.status(500).json({ msg: error.message })
         }
     },
     getUser: async (req, res) => {
         try {
-            res.json("This userCtrl")
+            const user = await User.findById(req.user.id).select("-password");
+            if (!user) 
+            return res.status(400).json({ msg: "User does not exists" });
+            res.json({ user });
         } catch (error) {
             return res.status(500).json({ msg: error.message })
         }
@@ -65,8 +82,8 @@ const userCtrl = {
 };
 const createAccessToken = (user) => {
     return jwt.sign(user, process.env.ACCESS, { expiresIn: "1d" });
-}
+};
 const createRefreshToken = (user) => {
-    return jwt.sign(user, process.env.REFRESH, { expiresIn: "7d" });
-}
+    return jwt.sign(user, process.env.REFRESH, { expiresIn: "1d" });
+};
 module.exports = userCtrl;
