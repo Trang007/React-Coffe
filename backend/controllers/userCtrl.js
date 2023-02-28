@@ -36,13 +36,13 @@ const userCtrl = {
     login: async (req, res) => {
         try {
             const { email, password } = req.body;
-            const user = await User.findOne({ email });
-            if (!user)
+            const thisUser = await User.findOne({ user_email: email });
+           if(!thisUser)
                 return res.status(400).json({ msg: "User does not exists" });
-            const isWatch = await bcrypt.compare(password, user.password);
-            if (!isWatch)
-                return res.status(400).json({ msg: "incorrect password" });
-            const accesstoken = createAccessToken({ id: user._id });
+            const watchPassword = await bcrypt.compare(password, thisUser.user_password);
+            if (!watchPassword)
+                return res.status(400).json({ msg: "Incorrect password" });
+            const accesstoken = createAccessToken({ id: thisUser._id });
             res.cookie("accesstoken", accesstoken, {
                 httpOnly: true,
                 path: "/user/accesstoken",
@@ -62,7 +62,7 @@ const userCtrl = {
     },
     getUser: async (req, res) => {
         try {
-            const user = await User.findById(req.user.id).select("-password");
+            const user = await User.findById(req.user.id).select("-user_password");
             if (!user)
                 return res.status(400).json({ msg: "User does not exists" });
             res.json({ user });
