@@ -11,9 +11,8 @@ const userCtrl = {
             if (password.length < 6)
                 return res.status(400).json({ msg: "Mat khau phai lon hon 6 ky tu" });
             const passwordHash = await bcrypt.hash(password, 10);
-            const newUser = await User({ email, password: passwordHash, name });
+            const newUser = await User({ email, password: passwordHash, name, role: "0" });
             await newUser.save();
-            // res.json({newUser});
             res.json({ msg: "Register complete!" });
         } catch (error) {
             return res.status(500).json({ msg: error.message });
@@ -22,7 +21,6 @@ const userCtrl = {
     accessToken: (req, res) => {
         try {
             const acc_token = req.cookies.accesstoken;
-            //Chưa đăng nhập
             if (!acc_token)
                 return res.status(400).json({ msg: "Please Login or Register!" }); //Trả về thông báo chưa đăng nhập
             jwt.verify(acc_token, process.env.ACCESS, (err, user) => {
@@ -44,7 +42,6 @@ const userCtrl = {
             const isWatch = await bcrypt.compare(password, user.password);
             if (!isWatch)
                 return res.status(400).json({ msg: "incorrect password" });
-            // const refreshtoken = createRefreshToken({ id: user._id });
             const accesstoken = createAccessToken({ id: user._id });
             res.cookie("accesstoken", accesstoken, {
                 httpOnly: true,
@@ -77,7 +74,4 @@ const userCtrl = {
 const createAccessToken = (user) => {
     return jwt.sign(user, process.env.ACCESS, { expiresIn: "1d" });
 };
-// const createRefreshToken = (user) => {
-//     return jwt.sign(user, process.env.REFRESH, { expiresIn: "1d" });
-// };
 module.exports = userCtrl;

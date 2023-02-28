@@ -12,12 +12,13 @@ const categoryCtrl = {
   createCategory: async (req, res) => {
     try {
       const { name } = req.body;
-      const categories = await Category.findOne({ category_name: name });
-      if (categories)
+      const category = await Category.findOne({ category_name: name });
+      if (category)
         return res.status(400).json({ msg: "The name already exists" });
-      const newCategories = await Category({ category_name: name });
-      await newCategories.save();
-      res.json("Create category complete!");
+      const newCategory = await Category({ category_name: name });
+      res.json({newCategory});
+      // await newCategory.save();
+      // res.json("Create category complete!");
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
