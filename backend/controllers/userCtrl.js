@@ -5,13 +5,13 @@ const userCtrl = {
     register: async (req, res) => {
         try {
             const { email, password, name } = req.body;
-            const emailUser = await User.findOne({ email });
+            const emailUser = await User.findOne({ user_email: email });
             if (emailUser)
-                return res.status(400).json({ msg: "Email da ton tai" });
+                return res.status(400).json({ msg: "Email already exists!" });
             if (password.length < 6)
-                return res.status(400).json({ msg: "Mat khau phai lon hon 6 ky tu" });
+                return res.status(400).json({ msg: "Password must be more than 6 characters!" });
             const passwordHash = await bcrypt.hash(password, 10);
-            const newUser = await User({ email, password: passwordHash, name, role: "0" });
+            const newUser = await User({ user_email: email, user_password: passwordHash, user_name: name, user_role: "0" });
             await newUser.save();
             res.json({ msg: "Register complete!" });
         } catch (error) {
@@ -22,7 +22,7 @@ const userCtrl = {
         try {
             const acc_token = req.cookies.accesstoken;
             if (!acc_token)
-                return res.status(400).json({ msg: "Please Login or Register!" }); //Trả về thông báo chưa đăng nhập
+                return res.status(400).json({ msg: "Please Login or Register!" });
             jwt.verify(acc_token, process.env.ACCESS, (err, user) => {
                 if (err)
                     return res.status(400).json({ msg: "Please Login or Register!" });

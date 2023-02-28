@@ -27,7 +27,7 @@ router.post("/upload", auth, authAdmin, (req, res) => {
     }
     cloudinary.v2.uploader.upload(
       file.tempFilePath,
-      { folder: "test" },
+      { folder: "React-coffee-picture" },
       async (err, result) => {
         if (err) throw err;
         remove(file.tempFilePath);
