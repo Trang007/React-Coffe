@@ -5,8 +5,8 @@ const userCtrl = {
     register: async (req, res) => {
         try {
             const { email, password, name } = req.body;
-            const user = await User.findOne({ email });
-            if (user)
+            const emailUser = await User.findOne({ email });
+            if (emailUser)
                 return res.status(400).json({ msg: "Email da ton tai" });
             if (password.length < 6)
                 return res.status(400).json({ msg: "Mat khau phai lon hon 6 ky tu" });
