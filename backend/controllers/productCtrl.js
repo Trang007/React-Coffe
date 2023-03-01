@@ -1,11 +1,21 @@
 const Product = require("../models/productModel");
 const Category = require("../models/categoryModel");
 
+class API{
+    constructer(query, queryString){
+        this.query = query;
+        this.queryString = queryString;
+    }
+}
+
 const productCtrl = {
     getProducts: async (req, res) => {
         try {
-            const product = await Product.find();
-            res.json({ product });
+            console.log(req.query);
+            const features = new API((Product.find()), req.query);
+            const products = features.query;
+            console.log(features.query);
+            res.json({products});
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }
@@ -13,9 +23,9 @@ const productCtrl = {
     createProduct: async (req, res) => {
         try {
             const { categories, name, price, image} = req.body;
-            // if (!image) {
-            //     return res.status(400).json({ msg: "No image selected!" });
-            // }
+            if (!image) {
+                return res.status(400).json({ msg: "No image selected!" });
+            }
             const nameCategory = await Category.findOne({ category_name: categories });
             if (!nameCategory) {
                 return res.status(400).json({ msg: "No category selected!" });
