@@ -1,11 +1,13 @@
 import React from 'react'
+import { useContext } from 'react';
+import { GlobalState } from '../GlobalState';
 import style from '../component/MenuArea.module.css'
-import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Logo1 from '../assets/logo-1.png'
 import Logo2 from '../assets/logo-2.png'
 
 const MenuArea = () => {
+  const value = useContext(GlobalState);
   return (
     <div className={style['MenuArea']}>
       <div className={style['MenuInner']}>

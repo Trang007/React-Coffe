@@ -8,8 +8,9 @@ const Product = () => {
   return (
     <div className={style['Product']}>
         <MenuArea/>
+        product
         {/* <ProductApi/> */}
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

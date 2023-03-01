@@ -4,6 +4,7 @@ import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword';
 import Introduce from './pages/Introduce';
 import Product from './pages/Product';
+import { DataProvider } from './GlobalState';
 
 import {
   createBrowserRouter,
@@ -14,34 +15,34 @@ import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
-  }, 
+    element: <Home />
+  },
   {
     path: "/Login",
-    element: <Login/>
+    element: <Login />
   },
   {
     path: "/Register",
-    element: <Register/>
+    element: <Register />
   },
   {
     path: "/ForgotPassword",
-    element: <ForgotPassword/>
+    element: <ForgotPassword />
   },
   {
     path: "/Introduce",
-    element: <Introduce/>
+    element: <Introduce />
   },
   {
     path: "/Product",
-    element: <Product/>
+    element: <Product />
   },
 ]);
 function App() {
   return (
-    <div className="App">
-     <RouterProvider router={router} />
-    </div>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
   );
 }
 
