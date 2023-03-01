@@ -38,15 +38,14 @@ const productCtrl = {
     updateProduct: async (req, res) => {
         try {
             const { categories, name, price, image} = req.body;
-            if (!image) {
-                return res.status(400).json({ msg: "No images selected" });
-            }
+            // if (!image) {
+            //     return res.status(400).json({ msg: "No images selected" });
+            // }
             categories = await Category.findOne({ category_name: categories });
             if (!categories) {
                 return res.status(400).json({ msg: "No category selected!" });
             }
-            await Product.findOneAndUpdate({ _id: req.params.id }, { product_category: categories, product_name: name, product_price: price, product_image: image }
-            );
+            await Product.findOneAndUpdate({ _id: req.params.id }, { product_category: categories, product_name: name, product_price: price, product_image: image });
             res.json("Update product complete!");
         } catch (error) {
             return res.status(500).json({ msg: error.message });

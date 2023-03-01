@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword';
 import Introduce from './pages/Introduce';
+import Product from './pages/Product';
 
 import {
   createBrowserRouter,
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/Introduce",
     element: <Introduce/>
+  },
+  {
+    path: "/Product",
+    element: <Product/>
   },
 ]);
 function App() {

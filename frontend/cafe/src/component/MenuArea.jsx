@@ -22,6 +22,9 @@ const MenuArea = () => {
                 <a href="/">Home</a>
               </li>
               <li>
+                <a href="/Product">Product</a>
+              </li>
+              <li>
                 <a href="/Introduce">Menu</a>
               </li>
               <li>
