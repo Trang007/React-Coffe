@@ -1,8 +1,12 @@
 import React from 'react'
+import {  useContext} from 'react'
 import style from '../component/Header.module.css'
+import { GlobalState } from '../GlobalState';
 import MenuArea from "./MenuArea"
 
 const Header = () => {
+  const state = useContext(GlobalState);
+  console.log(state);
   return (
     <div className={style['Header']}>
       <MenuArea className={style['HeaderMenu']} />

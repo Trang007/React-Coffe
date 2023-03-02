@@ -11,10 +11,10 @@ class API{
 const productCtrl = {
     getProducts: async (req, res) => {
         try {
-            console.log(req.query);
-            const features = new API((Product.find()), req.query);
-            const products = features.query;
-            console.log(features.query);
+            // console.log(req.query);
+            // const features = new API((Product.find()), req.query);
+            const products = await Product.find();
+            // console.log(features.query);
             res.json({products});
         } catch (error) {
             return res.status(500).json({ msg: error.message });

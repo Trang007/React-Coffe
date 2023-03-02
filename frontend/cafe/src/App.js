@@ -3,7 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword';
 import Introduce from './pages/Introduce';
-import Product from './pages/Product';
+import Product from './pages/product/Product';
 import { DataProvider } from './GlobalState';
 
 import {
@@ -40,9 +40,12 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
+    <DataProvider >
+
       <div className="App">
         <RouterProvider router={router} />
       </div>
+    </DataProvider>
   );
 }
 

@@ -3,15 +3,15 @@ import axios from 'axios'
 
 const ProductApi = () => {
     const [ products, setProduct] = useState([]);
-    const getProducts = async() => {
-        const res = await axios.get("/api/product");
-        console.log(res);
-    }
     useEffect(() => {
-        getProducts();
-    })
+      const getProducts = async() => {
+          const res = await axios.get("/api/product");
+          setProduct(res.data.products);
+      }
+      getProducts();
+    },[])
   return {
-    products: [products, setProduct]
+    products: [products, setProduct],
   }
 }
 
